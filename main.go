@@ -10,8 +10,6 @@ import (
 
 	"github.com/kakty/taskmgr/controllers"
 
-	"github.com/go-redis/redis"
-
 	"github.com/kakty/taskmgr/routes"
 
 	"github.com/joho/godotenv"
@@ -22,7 +20,6 @@ import (
 
 var (
 	db  *gorm.DB
-	rdb *redis.Client
 )
 
 func init() {
