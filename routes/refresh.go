@@ -42,7 +42,7 @@ func Refresh(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if time.Unix(claims.ExpiresAt, 0).Sub(time.Now()) > 30*time.Second {
+	if time.Until(claims.ExpiresAt).Unix() > 30*time.Second {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
