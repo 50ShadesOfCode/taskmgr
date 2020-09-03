@@ -44,5 +44,8 @@ func Welcome(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(fmt.Sprintf("Welcome %s!", claims.Username)))
+	err = w.Write([]byte(fmt.Sprintf("Welcome %s!", claims.Username)))
+        if err != nil {
+                log.Fatal(err)
+        }
 }
