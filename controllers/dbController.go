@@ -14,12 +14,12 @@ func InitDb() *gorm.DB {
 	if err != nil {
 		log.Fatal("Error opening db")
 	}
-	err := db.Table("tasks").AutoMigrate(&models.Task{})
+	err = db.Table("tasks").AutoMigrate(&models.Task{})
         if err != nil{
                 log.Fatal(err)
         }
 	//db.Create(&models.Task{ID: 1, Name: "nam", Description: "des", StartTime: time.Now(), FinishTime: time.Now().Add(time.Second * 3600), IsCompleted: false})
-	err := db.Table("users").AutoMigrate(&models.User{})
+	err = db.Table("users").AutoMigrate(&models.User{})
         if err != nil {
                 log.Fatal(err)
         }
