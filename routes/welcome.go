@@ -43,9 +43,5 @@ func Welcome(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
-
-	err = w.Write([]byte(fmt.Sprintf("Welcome %s!", claims.Username)))
-        if err != nil {
-                log.Fatal(err)
-        }
+        fmt.Fprintf(w, "Welcome %s!", claims.Username)
 }
