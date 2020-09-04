@@ -16,3 +16,8 @@ type Task struct {
 	FinishTime  time.Time `json:"finishTime"`
 	IsCompleted bool      `json:"isCompleted"`
 }
+
+//TableName :
+func (Task) TableName() string {
+	return "tasks"
+}

@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/kakty/taskmgr/controllers"
+	"github.com/kakty/taskmgr/middleware"
 
-	"github.com/go-redis/redis"
+	"github.com/kakty/taskmgr/controllers"
 
 	"github.com/kakty/taskmgr/routes"
 
@@ -20,7 +20,6 @@ import (
 
 var (
 	db  *gorm.DB
-	rdb *redis.Client
 )
 
 func init() {
@@ -35,6 +34,7 @@ func main() {
 	PORT := os.Getenv("PORT")
 	r := mux.NewRouter()
 	routes.UseRoutes(r, db)
+	r.Use(middleware.AuthMiddleware)
 	srv := &http.Server{
 		Handler: r,
 		Addr:    ":" + PORT,
