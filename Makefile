@@ -20,3 +20,5 @@ build:
 
 lint:
 	$(LINTER) run
+
+%.o %.mod
