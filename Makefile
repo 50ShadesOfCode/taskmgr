@@ -21,4 +21,4 @@ build:
 lint:
 	$(LINTER) run
 
-%.o %.mod
+%.o : %.mod
